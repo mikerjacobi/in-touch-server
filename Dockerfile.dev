@@ -1,0 +1,4 @@
+FROM golang
+ADD . /go/src/github.com/mikerjacobi/in-touch-server
+RUN cd /go/src/github.com/mikerjacobi/in-touch-server/server && go build ./...
+CMD ["/go/src/github.com/mikerjacobi/in-touch-server/server/server"]

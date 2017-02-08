@@ -1,0 +1,7 @@
+ {
+    "go.gopath": "/Users/jacobi/Projects/gopath",
+    "go.goroot": "/usr/local/go",
+    "go.formatOnSave": true,
+    "go.lintOnSave": true,
+    "go.vetOnSave": true
+}
