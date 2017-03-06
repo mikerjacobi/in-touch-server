@@ -1,0 +1,92 @@
+consumes:
+- application/json
+definitions:
+  PostAuthPayload:
+    example:
+      password: password
+      username: jacobra
+    properties:
+      password:
+        example: password
+        minLength: 6
+        type: string
+      username:
+        example: jacobra
+        minLength: 1
+        type: string
+    required:
+    - username
+    - password
+    title: PostAuthPayload
+    type: object
+host: localhost:8080
+info:
+  description: A teaser for goa
+  title: The adder API
+  version: ""
+paths:
+  /add/{left}/{right}:
+    get:
+      description: add returns the sum of the left and right parameters in the response
+        body
+      operationId: operands#add
+      parameters:
+      - description: Left operand
+        in: path
+        name: left
+        required: true
+        type: integer
+      - description: Right operand
+        in: path
+        name: right
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+      schemes:
+      - http
+      summary: add operands
+      tags:
+      - operands
+  /friend/{friend_id}:
+    get:
+      description: get friend by id
+      operationId: friend#get
+      parameters:
+      - description: friend id
+        in: path
+        name: friend_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+      schemes:
+      - http
+      summary: get friend
+      tags:
+      - friend
+  /login:
+    post:
+      description: get friend by id
+      operationId: auth#post
+      parameters:
+      - in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/PostAuthPayload'
+      responses:
+        "200":
+          description: OK
+      schemes:
+      - http
+      summary: post auth
+      tags:
+      - auth
+produces:
+- application/json
+schemes:
+- http
+swagger: "2.0"
